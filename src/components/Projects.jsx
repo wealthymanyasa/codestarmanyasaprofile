@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import project1 from "../assets/images/careers.png";
 import project2 from "../assets/images/angular-shop.png";
-import project3 from "../assets/images/careers.png";
+import project3 from "../assets/images/responsive.png";
 
 import project_person from "../assets/images/hireme.jpg";
 import "swiper/css";
@@ -25,9 +25,9 @@ const Projects = () => {
     },
     {
       img: project3,
-      name: "Highking",
-      github_link: "https://github.com/Sridhar-C-25/highking",
-      live_link: "https://highking01.netlify.app",
+      name: "Single Page Responsive",
+      github_link: "https://github.com/wealthymanyasa/manyasaprofile",
+      live_link: "https://manyasaprofile-c3597.web.app/",
     },
    
   ];
@@ -86,7 +86,7 @@ const Projects = () => {
           </Swiper>
         </div>
         <div className="lg:block hidden">
-          <img src={project_person} alt="" />
+          <img src={project_person} alt="" className="rounded-l-full"/>
         </div>
       </div>
     </section>

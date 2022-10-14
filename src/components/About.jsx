@@ -1,5 +1,5 @@
 import React from "react";
-import aboutImg from "../assets/images/hero.png";
+import aboutImg from "../assets/images/aboutme.jpg";
 const About = () => {
   const info = [
     { text: "Years experience", count: "03" },
@@ -36,7 +36,7 @@ const About = () => {
               <br />
               <br />
               <a href="https://www.dropbox.com/s/3w4emnjp0jxm0ns/omanyasa.cv%20%281%29.pdf?dl=1" download>
-                <button className="btn-primary">Download CV</button>
+                <button className="btn-primary hover:bg-sky-700">Download CV</button>
               </a>
             </div>
           </div>

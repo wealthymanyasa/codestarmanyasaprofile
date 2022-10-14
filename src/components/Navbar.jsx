@@ -24,9 +24,9 @@ const Navbar = () => {
     >
       <div className="flex items-center justify-between">
         <div className="mx-7">
-          <h4 className="text-4xl uppercase font-bold">
+          <a href="#"className="text-4xl uppercase font-bold">
             Code<span className="text-cyan-600">St<ion-icon name="star-outline"></ion-icon>r</span>
-          </h4>
+          </a>
         </div>
         <div
           className={` ${

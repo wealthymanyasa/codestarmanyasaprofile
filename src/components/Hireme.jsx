@@ -1,5 +1,5 @@
 import React from "react";
-import hireMe from "../assets/images/hireme.jpg";
+import hireMe from "../assets/images/hero.jpg";
 const Hireme = () => {
   return (
     <section id="hireme" className="py-10 px-3 text-white">
@@ -19,7 +19,7 @@ const Hireme = () => {
             To satisfy my clients I employ my technical knowledge and my eargerness to learn.
             
           </p>
-          <button className="btn-primary mt-10 ">Hire me</button>
+          <a href="https://api.whatsapp.com/send?phone=263779050634" tartget="_blank"><button  className="btn-primary mt-10 hover:bg-sky-700">Hire me</button></a>
           {/* <div className="animate-pulse text-purple-500">
           <ion-icon name="rocket-outline"></ion-icon>
           </div> */}
@@ -27,7 +27,7 @@ const Hireme = () => {
         <img
           src={hireMe}
           alt=""
-          className="rounded-xl shadow-2xl lg:absolute -right-6 -bottom-6  object-cover"
+          className="rounded-xl h-80 shadow-2xl lg:absolute -right-6 -bottom-6  object-cover"
         />
       </div>
     </section>
