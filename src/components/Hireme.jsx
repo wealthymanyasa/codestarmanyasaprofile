@@ -24,11 +24,18 @@ const Hireme = () => {
           <ion-icon name="rocket-outline"></ion-icon>
           </div> */}
         </div>
+        <div className="bg-green-500">
+
+  
         <img
           src={hireMe}
           alt=""
-          className="rounded-xl h-80 shadow-2xl lg:absolute -right-6 -bottom-6  object-cover"
+          className="rounded-xl h-80 shadow-2xl rotate-12 lg:absolute -right-6 -bottom-6  object-cover"
         />
+         <div class="absolute h-14 w-14 -left-6 rounded-full -top-6  bg-cyan-600"></div>
+         <div class="absolute h-14 w-14 -right-6 rounded-full -top-6  bg-cyan-600"></div>
+
+        </div>
       </div>
     </section>
   );
