@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.12",
+    "create-react-app": "^5.0.1",
     "email-js": "^2.0.2",
     "postcss": "^8.4.18",
     "react": "^18.2.0",
@@ -33,6 +34,9 @@
       "react-app/jest"
     ]
   },
+  "engines": { "node": "v16.16.0",
+ "npm": "8.19.2"},
+
   "browserslist": {
     "production": [
       ">0.2%",
