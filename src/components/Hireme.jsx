@@ -19,7 +19,7 @@ const Hireme = () => {
             To satisfy my clients I employ my technical knowledge and my eargerness to learn.
             
           </p>
-          <a href="https://api.whatsapp.com/send?phone=263779050634" target="_blank"><button  className="btn-primary mt-10 hover:bg-sky-700">Hire me</button></a>
+          <a href="https://api.whatsapp.com/send?phone=263779050634" target="_blank" rel="noreferrer"><button  className="btn-primary mt-10 hover:bg-sky-700">Hire me</button></a>
           {/* <div className="animate-pulse text-purple-500">
           <ion-icon name="rocket-outline"></ion-icon>
           </div> */}
