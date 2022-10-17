@@ -33,7 +33,7 @@ const Hero = () => {
                         </span>
                         &#160; Software Engineer
                     </h4>
-                    <button className="btn-primary mt-8 hover:bg-sky-700 ">Contact Me</button>
+                    <a href="https://api.whatsapp.com/send?phone=263779050634" target="_blank">  <button className="btn-primary mt-8 hover:bg-sky-700 ">Contact Me</button></a>
                     <div className="mt-8 text-3xl flex items-center md:justify-start justify-center gap-5">
                         <a href="https://github.com/wealthymanyasa" target="_blank">
                             <ion-icon name="logo-github"></ion-icon>
