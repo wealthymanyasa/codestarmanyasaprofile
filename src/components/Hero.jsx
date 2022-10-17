@@ -8,6 +8,7 @@ const Hero = () => {
             className="min-h-screen flex py-10 md:flex-row flex-col items-center"
         >
             <div className="flex-1 flex items-center justify-center h-full ">
+                
                 <div className="lg:w-96 h-full relative sm:w-10/12 w-11/12 max-w-sm aboutImg ">
                     <img
                         src={hero}

@@ -24,7 +24,7 @@ const Hireme = () => {
           <ion-icon name="rocket-outline"></ion-icon>
           </div> */}
         </div>
-        <div className="bg-green-500">
+        <div className="bg-cyan-600 rounded-lg">
 
   
         <img
