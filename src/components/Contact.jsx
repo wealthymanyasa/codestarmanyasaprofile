@@ -73,6 +73,8 @@ const Contact = () => {
             <textarea placeholder="Your Message" required name="message" rows={10}></textarea>
             <button type="submit" className="focus:ring focus:ring-violet-300 btn-primary w-fit hover:bg-sky-700">Send Message</button>
             <Toaster />
+            <span class="flex h-3 w-3">
+</span>
            
         
           </form>
