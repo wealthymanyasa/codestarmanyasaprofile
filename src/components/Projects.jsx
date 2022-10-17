@@ -4,7 +4,7 @@ import project1 from "../assets/images/careers.png";
 import project2 from "../assets/images/angular-shop.png";
 import project3 from "../assets/images/responsive.png";
 
-import project_person from "../assets/images/hireme.jpg";
+import project_person from "../assets/images/projects.jpg";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";

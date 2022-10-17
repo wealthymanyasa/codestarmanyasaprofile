@@ -39,6 +39,9 @@ const Navbar = () => {
                 <a href={menu?.link}>{menu?.name}</a>
               </li>
             ))}
+            <li> <a href="https://www.dropbox.com/s/3w4emnjp0jxm0ns/omanyasa.cv%20%281%29.pdf?dl=1" download
+                 className="btn-primary hover:bg-sky-700 h-10 uppercase">Resume
+              </a></li>
           </ul>
         </div>
         <div
