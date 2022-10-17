@@ -67,14 +67,14 @@ const Projects = () => {
                   <div className="flex gap-3">
                     <a
                       href={project_info.github_link}
-                      target="_blank"
+                      target="_blank" rel="noreferrer"
                       className="text-cyan-600 bg-gray-800 px-2 py-1 inline-block"
                     >
                       Github
                     </a>
                     <a
                       href={project_info.live_link}
-                      target="_blank"
+                      target="_blank" rel="noreferrer"
                       className="text-cyan-600 bg-gray-800 px-2 py-1 inline-block"
                     >
                       Live Demo
