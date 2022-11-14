@@ -1,6 +1,8 @@
 import React ,{ useRef }from "react";
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
+import profile from '../assets/images/profile.jpg'
+import {FcCheckmark } from "react-icons/fc"
 
 
 const Contact = () => {
@@ -32,17 +34,20 @@ const Contact = () => {
               <div className="flex-shrink-0 pt-0.5">
                 <img
                   className="h-10 w-10 rounded-full"
-                  src="https://media-exp1.licdn.com/dms/image/D4D35AQGVZJgHiK7OLA/profile-framedphoto-shrink_400_400/0/1653989629654?e=1666353600&v=beta&t=hXhW-_WjLAlCZZit6Fe7dHzdcllFY3O0oMO7ui2I5I0"
-                  alt=""
+                  src={profile}
+                  alt="profile"
                 />
               </div>
               <div className="ml-3 flex-1">
                 <p className="text-sm font-medium text-gray-900">
-                      Hi its Obert (codeStar) Manyasa here.
+                      Hi there 
                 </p>
                 <p className="mt-1 text-sm text-gray-500">
                   Thank you for your message see you soon!!
                 </p>
+              </div>
+              <div className="flex-shrink-0">
+              <FcCheckmark/>
               </div>
             </div>
           </div>
@@ -71,7 +76,7 @@ const Contact = () => {
             <input type="text" required name="user_name" placeholder="Your Name" />
             <input type="email" required name="user_email" placeholder="Your Email Address" />
             <textarea placeholder="Your Message" required name="message" rows={10}></textarea>
-            <button type="submit" className="focus:ring focus:ring-violet-300 btn-primary w-fit hover:bg-sky-700">Send Message</button>
+            <button type="submit" className="focus:ring focus:ring-violet-300 btn-primary w-fit hover:bg-sky-700"> Send Message</button>
             <Toaster />
             <span class="flex h-3 w-3">
 </span>
