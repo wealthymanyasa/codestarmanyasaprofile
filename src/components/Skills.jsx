@@ -57,7 +57,7 @@ const Skills = () => {
                     </div>
                 </div>
             </section>
-            <section className="py-10 bg-gray-800 relative">
+            <section id="stats" className="py-10 bg-gray-800 relative">
                 <div className="mt-8 text-gray-100 text-center">
                     <h3 className="text-4xl font-semibold ">
                         <span className="text-green-400">Github</span><span className="text-cyan-600"> Statistics</span>&#160;

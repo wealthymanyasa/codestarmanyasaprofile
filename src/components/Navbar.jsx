@@ -7,6 +7,7 @@ const Navbar = () => {
     { name: "HOME", link: "#home" },
     { name: "ABOUT", link: "#about" },
     { name: "SKILLS", link: "#skills" },
+    { name: "GITHUB STATS", link: "#stats" },
     { name: "PROJECTS", link: "#projects" },
     { name: "CONTACT", link: "#contact" },
   ];
@@ -24,8 +25,11 @@ const Navbar = () => {
     >
       <div className="flex items-center justify-between">
         <div className="mx-7">
-          <a href="#"className="text-4xl uppercase font-bold">
-            Code<span className="text-cyan-600">St<ion-icon name="star-outline"></ion-icon>r</span>
+          <a href="#" className="text-4xl uppercase font-bold">
+            Code
+            <span className="text-cyan-600">
+              St<ion-icon name="star-outline"></ion-icon>r
+            </span>
           </a>
         </div>
         <div
@@ -35,13 +39,20 @@ const Navbar = () => {
         >
           <ul className="flex items-center gap-1 py-2 text-lg">
             {menuLinks?.map((menu, i) => (
-              <li key={i} className="px-6 hover:text-cyan-600">
+              <li key={i} className="px-3 hover:text-cyan-600">
                 <a href={menu?.link}>{menu?.name}</a>
               </li>
             ))}
-            <li> <a href="https://www.dropbox.com/s/3w4emnjp0jxm0ns/omanyasa.cv%20%281%29.pdf?dl=1" download
-                 className="btn-primary hover:bg-sky-700 h-10 uppercase">Resume
-              </a></li>
+            <li>
+              {" "}
+              <a
+                href="https://www.dropbox.com/s/3w4emnjp0jxm0ns/omanyasa.cv%20%281%29.pdf?dl=1"
+                download
+                className="btn-primary hover:bg-sky-700 h-10 uppercase"
+              >
+                Resume
+              </a>
+            </li>
           </ul>
         </div>
         <div
