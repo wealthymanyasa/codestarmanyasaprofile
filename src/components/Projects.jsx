@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import project1 from "../assets/images/careers.png";
 import project2 from "../assets/images/angular-shop.png";
 import project3 from "../assets/images/responsive.png";
+import project4 from "../assets/images/landing-page.png"
 
 import project_person from "../assets/images/projects.jpg";
 import "swiper/css";
@@ -29,6 +30,12 @@ const Projects = () => {
       github_link: "https://github.com/wealthymanyasa/manyasaprofile",
       live_link: "https://manyasaprofile-c3597.web.app/",
     },
+    {
+      img: project4,
+      name: "Tailwind landing page",
+      github_link: "https://github.com/wealthymanyasa/landingpage-tailwind",
+      live_link: "https://wealthymanyasa.github.io/landingpage-tailwind/",
+    }
    
   ];
   return (
