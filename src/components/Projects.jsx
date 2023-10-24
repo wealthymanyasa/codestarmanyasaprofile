@@ -16,7 +16,7 @@ const Projects = () => {
       img: project1,
       name: "Laravel Job Portal",
       github_link: "https://github.com/wealthymanyasa/ericcareers",
-      live_link: "https://eric-career-portal.herokuapp.com/",
+      live_link: "https://ericcareers.000webhostapp.com/",
     },
     {
       img: project2,
