@@ -22,7 +22,7 @@ const Projects = () => {
       img: project2,
       name: "Angular Shopping Cart",
       github_link: "https://github.com/wealthymanyasa/angular-cart",
-      live_link: "https://angular-add-to-cart.herokuapp.com/",
+      live_link: "https://angular-cart-82b4a.web.app/",
     },
     {
       img: project3,
@@ -59,7 +59,7 @@ const Projects = () => {
             }}
             loop={true}
             autoplay={{
-              delay: 3000,
+              delay: 6000,
             }}
             pagination={{
               clickable: true,
