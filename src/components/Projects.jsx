@@ -73,7 +73,7 @@ const Projects = () => {
             }}
             loop={true}
             autoplay={{
-              delay: 6000,
+              delay: 4000,
             }}
             pagination={{
               clickable: true,
