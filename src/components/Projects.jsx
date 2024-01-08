@@ -4,6 +4,8 @@ import project1 from "../assets/images/careers.png";
 import project2 from "../assets/images/angular-shop.png";
 import project3 from "../assets/images/responsive.png";
 import project4 from "../assets/images/landing-page.png"
+import project5 from "../assets/images/project5.png"
+import project6 from "../assets/images/prime-health.png"
 
 import project_person from "../assets/images/projects.jpg";
 import "swiper/css";
@@ -35,8 +37,20 @@ const Projects = () => {
       name: "Tailwind landing page",
       github_link: "https://github.com/wealthymanyasa/landingpage-tailwind",
       live_link: "https://wealthymanyasa.github.io/landingpage-tailwind/",
+    },
+    {
+      img: project5,
+      name: "Cload App React Tailwind",
+      github_link: "https://github.com/wealthymanyasa/cloud-app-tailwind-react",
+      live_link: "https://cloud-app-tailwind-react.vercel.app",
+    },
+    {
+      img: project6,
+      name: "Prime-Health React Tailwind",
+      github_link: "https://github.com/wealthymanyasa/prime-health-responsive-landing-page",
+      live_link: "https://prime-health-tailwind.web.app/",
     }
-   
+
   ];
   return (
     <section id="projects" className="py-10 text-white">
@@ -48,13 +62,13 @@ const Projects = () => {
       </div>
       <br />
       <div className="flex max-w-6xl gap-6 px-5 mx-auto items-center relative">
-        <div className="lg:w-2/3 w-full">
+        <div className="w-full">
           <Swiper
             slidesPerview={1.2}
             spaceBetween={20}
             breakpoints={{
               768: {
-                slidesPerView: 2,
+                slidesPerView: 3,
               },
             }}
             loop={true}
@@ -92,9 +106,30 @@ const Projects = () => {
             ))}
           </Swiper>
         </div>
-        <div className="lg:block hidden">
+        {/* <div className="lg:block hidden">
           <img src={project_person} alt="" className="rounded-l-full"/>
-        </div>
+        </div> */}
+      </div>
+
+      <h3 className="text-4xl font-semibold pt-10">
+
+        <h1 className="text-center"><span className="text-cyan-600 ">Projects </span>List Links</h1>
+      </h3>
+      <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2 p-4">
+        {projects.map((project_info, i) => (
+          <a href={project_info.live_link} class="p-2 sm:w-1/2 w-full" target="_blank" rel="noreferrer">
+            <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+                <i class="font-medium text-indigo-600">{project_info.live_link}</i>
+            </div>
+          </a>
+        ))}
+
+
       </div>
     </section>
   );

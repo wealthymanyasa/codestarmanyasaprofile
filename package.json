@@ -38,8 +38,8 @@
     ]
   },
   "engines": {
-    "node": "v16.16.0",
-    "npm": "8.19.2"
+    "node": ">=v16.16.0",
+    "npm": ">=8.19.2"
   },
   "browserslist": {
     "production": [
