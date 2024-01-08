@@ -40,7 +40,7 @@ const Projects = () => {
     },
     {
       img: project5,
-      name: "Cload App React Tailwind",
+      name: "Cloud App React Tailwind",
       github_link: "https://github.com/wealthymanyasa/cloud-app-tailwind-react",
       live_link: "https://cloud-app-tailwind-react.vercel.app",
     },
@@ -113,7 +113,7 @@ const Projects = () => {
 
       <h3 className="text-4xl font-semibold pt-10">
 
-        <h1 className="text-center"><span className="text-cyan-600 ">Projects </span>List Links</h1>
+        <h1 className="text-center">Projects <span className="text-cyan-600 ">Links List</span> </h1>
       </h3>
       <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2 p-4">
         {projects.map((project_info, i) => (
