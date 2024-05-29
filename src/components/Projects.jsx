@@ -6,6 +6,7 @@ import project3 from "../assets/images/responsive.png";
 import project4 from "../assets/images/landing-page.png"
 import project5 from "../assets/images/project5.png"
 import project6 from "../assets/images/prime-health.png"
+import standup1 from "../assets/images/standup1.png"
 
 import project_person from "../assets/images/projects.jpg";
 import "swiper/css";
@@ -14,6 +15,12 @@ import { Pagination, Autoplay } from "swiper";
 
 const Projects = () => {
   const projects = [
+    {
+      img: standup1,
+      name: "Nextjs Video Conferencing WebApp",
+      github_link: "https://github.com/wealthymanyasa/standup-video-conferencing.git",
+      live_link: "https://standup-video-conferencing-nextjs.vercel.app/",
+    },
     {
       img: project1,
       name: "Laravel Job Portal",
