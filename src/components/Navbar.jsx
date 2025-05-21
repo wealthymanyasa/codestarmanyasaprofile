@@ -10,11 +10,12 @@ const Navbar = () => {
     { name: "SKILLS", link: "#skills" },
     { name: "GITHUB STATS", link: "#stats" },
     { name: "PROJECTS", link: "#projects" },
+    { name: "TESTIMONIALS", link: "#testimonials" },
     { name: "CONTACT", link: "#contact" },
   ];
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      const nav = document.querySelector("nav");
+      //const nav = document.querySelector("nav");
       window.scrollY > 0 ? setSticky(true) : setSticky(false);
     });
   }, []);
@@ -35,7 +36,7 @@ const Navbar = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.7 }}
         >
-          <a href="#" className="text-4xl uppercase font-bold tracking-tight select-none">
+          <a href="https://github.com/wealthymanyasa" className="text-4xl uppercase font-bold tracking-tight select-none">
             Code
             <span className="text-cyan-600">
               St<motion.span

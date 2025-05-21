@@ -1,5 +1,4 @@
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './index.css'
 import Navbar from './components/Navbar'
 import Bot from './components/Bot';

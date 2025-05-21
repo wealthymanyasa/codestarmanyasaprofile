@@ -10,7 +10,7 @@ import project6 from "../assets/images/prime-health.png";
 import standup1 from "../assets/images/standup1.png";
 import project7 from "../assets/images/CodeCrew.png";
 
-import project_person from "../assets/images/projects.jpg";
+//import project_person from "../assets/images/projects.jpg";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-cards";

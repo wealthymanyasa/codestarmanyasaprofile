@@ -1,17 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
+import testimage1 from "../assets/images/chemhere.jpg";
+import testimage2 from "../assets/images/sarah.png";
 
 const testimonials = [
   {
     name: "Sarah Matambanadzo",
     role: "CTO at TechCorp",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=facearea&q=80",
+    image: testimage2,
     text: "Obert is a true standout in the tech industry. His ability to deliver high-quality code while maintaining exceptional attention to detail is rare. His innovative solutions have significantly improved our product's performance and user experience.",
   },
   {
     name: "Michael Chemhere",
     role: "Engineering Manager WorthTech Systems",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=facearea&q=80",
+    image: testimage1,
     text: "I've had the pleasure of working with Obert on multiple complex projects. His technical expertise in modern web technologies is outstanding, and his ability to solve complex problems quickly is exceptional. Any company would be lucky to have him on their team.",
   },
   {
@@ -47,7 +49,7 @@ const cardVariants = {
 
 const Testimonials = () => {
   return (
-    <section className="bg-gray-900 py-24 px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="bg-gray-900 py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-white text-center mb-16">
           What People Say
