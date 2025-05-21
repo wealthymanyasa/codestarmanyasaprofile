@@ -36,7 +36,7 @@ A modern, responsive portfolio website built with React and Tailwind CSS, featur
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/portfolio.git
+   git clone https://github.com/wealthymanyasa/codestarmanyasaprofile.git
    cd portfolio
    ```
 
