@@ -35,87 +35,15 @@ const Contact = () => {
   ];
   
   const form = useRef();
- 
- const sendEmail = (e) => {
-   e.preventDefault(); // prevents the page from reloading when you hit “Send”
- 
-   emailjs.sendForm('service_g92j7cz', 'template_brlrber', form.current, '6oBnk3QfeH_zESzWQ')
-     .then((result) => {
-      
-      toast.custom((t) => (
-        <div
-          className={`${
-            t.visible ? 'animate-enter' : 'animate-leave'
-          } max-w-md w-full bg-cyan-100 border-2 border-cyan-300 shadow-cyan-900 animate-bounce shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-        >
-          <div className="flex-1 w-0 p-4">
-            <div className="flex items-start">
-              <div className="flex-shrink-0 pt-0.5">
-                <img
-                  className="h-10 w-10 rounded-full"
-                  src={profile}
-                  alt="profile"
-                />
-              </div>
-              <div className="ml-3 flex-1">
-                <p className="text-sm font-medium text-gray-900">
-                      Hi there 
-                </p>
-                <p className="mt-1 text-sm text-gray-500">
-                  Thank you for your message see you soon!!
-                </p>
-              </div>
-              <div className="flex-shrink-0">
-              <FcCheckmark/>
-              </div>
-            </div>
-          </div>
-         
-        </div>
-      ))
-     }, (error) => {
-         // show the user an error
-         
-      toast.custom((t) => (
-        <div
-          className={`${
-            t.visible ? 'animate-enter' : 'animate-leave'
-          } max-w-md w-full bg-red-100 border-2 border-red-300 shadow-red-900 animate-bounce shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-        >
-          <div className="flex-1 w-0 p-4">
-            <div className="flex items-start">
-              <div className="flex-shrink-0 pt-0.5">
-                <img
-                  className="h-10 w-10 rounded-full"
-                  src={profile}
-                  alt="profile"
-                />
-              </div>
-              <div className=" flex-1">
-                <p className="text-sm font-medium text-gray-900">
-                Message sending failed.
-                </p>
-                <p className="mt-1 text-sm text-gray-500">
-                  Please try again later!!
-                </p>
-              </div>
-            
-            </div>
-          </div>
-         
-        </div>
 
   const sendEmail = (e) => {
     e.preventDefault(); // prevents the page from reloading when you hit “Send”
 
     emailjs.sendForm('service_g92j7cz', 'template_brlrber', form.current, '6oBnk3QfeH_zESzWQ')
       .then((result) => {
-
         toast.custom((t) => (
           <div
-            className={`${
-              t.visible ? 'animate-enter' : 'animate-leave'
-            } max-w-md w-full bg-cyan-100 border-2 border-cyan-300 shadow-cyan-900 animate-bounce shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+            className={`${t.visible ? 'animate-enter' : 'animate-leave'} max-w-md w-full bg-cyan-100 border-2 border-cyan-300 shadow-cyan-900 animate-bounce shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
           >
             <div className="flex-1 w-0 p-4">
               <div className="flex items-start">
@@ -168,7 +96,6 @@ const Contact = () => {
                     Please try again later!!
                   </p>
                 </div>
-
               </div>
             </div>
 
@@ -178,6 +105,7 @@ const Contact = () => {
 
       });
   };
+
   return (
     <motion.section
       id="contact"
