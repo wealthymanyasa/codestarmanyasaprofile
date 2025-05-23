@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Portfolio Website
+=======
+# CodeStar [Obert Manyasa] Portfolio Website
+>>>>>>> f039baad9b82b1082e5e5812195e6f078db6d8f3
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -36,7 +40,11 @@ A modern, responsive portfolio website built with React and Tailwind CSS, featur
 
 1. Clone the repository:
    ```bash
+<<<<<<< HEAD
    git clone https://github.com/yourusername/portfolio.git
+=======
+   git clone https://github.com/wealthymanyasa/codestarmanyasaprofile.git
+>>>>>>> f039baad9b82b1082e5e5812195e6f078db6d8f3
    cd portfolio
    ```
 
