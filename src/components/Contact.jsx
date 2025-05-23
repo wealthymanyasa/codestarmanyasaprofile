@@ -1,9 +1,8 @@
-import React ,{ useRef }from "react";
-import { motion } from "framer-motion";
-import emailjs from '@emailjs/browser';
-import toast, { Toaster } from 'react-hot-toast';
-import profile from '../assets/images/profile.jpg'
-import {FcCheckmark } from "react-icons/fc"
+import React, { useRef, useState } from "react"
+import { motion } from "framer-motion"
+import emailjs from '@emailjs/browser'
+import { useToast } from "../hooks/use-toast"
+import { Loader2, CheckCircle, XCircle, Send } from "lucide-react"
 
 const containerVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -33,77 +32,102 @@ const Contact = () => {
       text: "Newlands Harare, Zimbabwe",
     },
   ];
-  
-  const form = useRef();
 
-  const sendEmail = (e) => {
-    e.preventDefault(); // prevents the page from reloading when you hit “Send”
+  const { toast } = useToast()
+  const form = useRef()
+  const [isSending, setIsSending] = useState(false)
 
-    emailjs.sendForm('service_g92j7cz', 'template_brlrber', form.current, '6oBnk3QfeH_zESzWQ')
-      .then((result) => {
-        toast.custom((t) => (
-          <div
-            className={`${t.visible ? 'animate-enter' : 'animate-leave'} max-w-md w-full bg-cyan-100 border-2 border-cyan-300 shadow-cyan-900 animate-bounce shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-          >
-            <div className="flex-1 w-0 p-4">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 pt-0.5">
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src={profile}
-                    alt="profile"
-                  />
-                </div>
-                <div className="ml-3 flex-1">
-                  <p className="text-sm font-medium text-gray-900">
-                    Hi there
-                  </p>
-                  <p className="mt-1 text-sm text-gray-500">
-                    Thank you for your message see you soon!!
-                  </p>
-                </div>
-                <div className="flex-shrink-0">
-                  <FcCheckmark />
-                </div>
-              </div>
-            </div>
+  const sendEmail = async (e) => {
+    e.preventDefault()
 
+    if (isSending) return // Prevent multiple submissions
+
+    const formData = new FormData(form.current)
+    const formProps = Object.fromEntries(formData)
+
+    // Validate form
+    if (!formProps.user_name || !formProps.user_email || !formProps.message) {
+      toast({
+        variant: "destructive",
+        title: "Validation Error",
+        description: "Please fill in all required fields.",
+      })
+      return
+    }
+
+    setIsSending(true)
+    let toastId
+
+    try {
+      // Show loading toast
+      toastId = toast({
+        variant: "loading",
+        title: "Sending message...",
+        description: "Please wait while we send your message.",
+        duration: 10000, // 10 seconds
+        action: (
+          <div className="flex items-center space-x-2">
+            <Loader2 className="h-4 w-4 animate-spin" />
+            <span>Sending...</span>
           </div>
-        ))
-      }, (error) => {
-        // show the user an error
+        )
+      })
 
-        toast.custom((t) => (
-          <div
-            className={`${
-              t.visible ? 'animate-enter' : 'animate-leave'
-            } max-w-md w-full bg-red-100 border-2 border-red-300 shadow-red-900 animate-bounce shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-          >
-            <div className="flex-1 w-0 p-4">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 pt-0.5">
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src={profile}
-                    alt="profile"
-                  />
-                </div>
-                <div className=" flex-1">
-                  <p className="text-sm font-medium text-gray-900">
-                    Message sending failed.
-                  </p>
-                  <p className="mt-1 text-sm text-gray-500">
-                    Please try again later!!
-                  </p>
-                </div>
-              </div>
-            </div>
+      // Send email
+      const result = await emailjs.sendForm(
+        'service_g92j7cz', 
+        'template_brlrber', 
+        form.current, 
+        '6oBnk3QfeH_zESzWQ'
+      )
 
+      // Update to success
+      toast({
+        id: toastId,
+        variant: "success",
+        title: "Message Sent!",
+        description: "Thank you for your message. I'll get back to you soon!",
+        duration: 5000,
+        action: (
+          <div className="flex items-center space-x-2 text-green-700">
+            <CheckCircle className="h-5 w-5" />
+            <span>Success</span>
           </div>
-        ))
-        console.log(error.text);
+        )
+      })
 
-      });
+      // Reset form
+      form.current.reset()
+
+    } catch (error) {
+      console.error('EmailJS Error:', error)
+
+      let errorMessage = 'Failed to send message. Please try again.'
+
+      if (error.status === 412) {
+        errorMessage = 'Validation failed. Please check your input and try again.'
+      } else if (error.text) {
+        errorMessage = error.text
+      }
+
+      // Update to error
+      toast({
+        id: toastId,
+        variant: "destructive",
+        title: "Error",
+        description: errorMessage,
+        duration: 5000,
+        action: (
+          <div className="flex items-center space-x-2 text-red-700">
+            <XCircle className="h-5 w-5" />
+            <span>Failed</span>
+          </div>
+        )
+      })
+
+    } finally {
+      setIsSending(false)
+    }
   };
 
   return (
@@ -173,14 +197,24 @@ const Contact = () => {
             />
             <motion.button
               type="submit"
-              className="mt-2 px-8 py-3 rounded-full text-lg font-bold shadow-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-cyan-300 transition-all duration-200 border-none text-white tracking-wide flex items-center gap-2"
-              whileHover={{ scale: 1.07, backgroundColor: "#06b6d4", color: "#fff", boxShadow: "0 4px 32px #06b6d4aa" }}
-              whileTap={{ scale: 0.97 }}
+              disabled={isSending}
+              className="mt-2 px-8 py-3 rounded-full text-lg font-bold shadow-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-cyan-300 transition-all duration-200 border-none text-white tracking-wide flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+              whileHover={{ scale: isSending ? 1 : 1.07, backgroundColor: "#06b6d4", color: "#fff", boxShadow: "0 4px 32px #06b6d4aa" }}
+              whileTap={{ scale: isSending ? 1 : 0.97 }}
               variants={itemVariants}
             >
-              <ion-icon name="send"></ion-icon> Send Message
+              {isSending ? (
+                <>
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send className="h-5 w-5" />
+                  Send Message
+                </>
+              )}
             </motion.button>
-            <Toaster />
           </motion.form>
           <motion.div
             className="flex flex-col gap-7 justify-center md:pl-6"

@@ -1,59 +1,119 @@
-# Getting Started with Create React App
+# Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
-## Available Scripts
+A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations with Framer Motion and a clean, professional design.
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- 🎨 Responsive design that works on all devices
+- ⚡ Blazing fast performance with React 18
+- 🎭 Smooth animations and transitions with Framer Motion
+- 📱 Mobile-first approach
+- 📧 Contact form with email integration
+- 🌓 Dark/light mode support
+- 🔍 SEO optimized
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend Framework**: React 18
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: React Icons
+- **Form Handling**: EmailJS
+- **Routing**: React Router DOM
+- **Notifications**: React Hot Toast
+- **Sliders**: Swiper.js
 
-### `npm test`
+## 🛠️ Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v16.16.0 or higher)
+- npm (v8.19.2 or higher)
 
-### `npm run build`
+## 📦 Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/portfolio.git
+   cd portfolio
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Create a `.env` file in the root directory and add your environment variables:
+   ```
+   REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+   REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+   REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
 
-### `npm run eject`
+## 🚀 Running the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Development Mode
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Production Build
 
-## Learn More
+```bash
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Builds the app for production to the `build` folder. The build is minified and the filenames include the hashes.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🏗️ Project Structure
 
-### Code Splitting
+```
+src/
+├── assets/          # Images and other static files
+├── components/      # Reusable UI components
+├── constants/       # Constants and configuration
+├── context/         # React context providers
+├── hooks/           # Custom React hooks
+├── pages/           # Page components
+├── styles/          # Global styles and Tailwind config
+└── utils/           # Utility functions
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🌐 Deployment
 
-### Analyzing the Bundle Size
+This project is configured for deployment on Firebase Hosting. To deploy:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Install Firebase CLI if you haven't already:
+   ```bash
+   npm install -g firebase-tools
+   ```
 
-### Making a Progressive Web App
+2. Login to Firebase:
+   ```bash
+   firebase login
+   ```
+
+3. Deploy to Firebase:
+   ```bash
+   npm run build
+   firebase deploy
+   ```
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- [Create React App](https://create-react-app.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
