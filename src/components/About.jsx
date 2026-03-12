@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import aboutImg from "../assets/images/aboutme.jpg";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { initialAbout } from "../data/initialData";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -22,10 +24,11 @@ const itemVariants = {
 };
 
 const About = () => {
+  const [aboutData] = useLocalStorage('about', initialAbout);
   const info = [
-    { text: "Years experience", count: "05" },
-    { text: "Completed Projects", count: "18" },
-    { text: "Companies Work", count: "06" },
+    { text: "Experience", count: aboutData.experience },
+    { text: "Projects", count: aboutData.projects },
+    { text: "Happy Clients", count: aboutData.clients },
   ];
   return (
     <motion.section
@@ -47,7 +50,7 @@ const About = () => {
           className="text-4xl font-semibold mb-2"
           variants={itemVariants}
         >
-          About <span className="text-cyan-400">Me</span>
+          {aboutData.title}
         </motion.h3>
         <motion.p
           className="text-gray-300 my-3 text-lg"
@@ -70,10 +73,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                I am a full-stack software engineer who is eager to learn and solve programming problems.
-                I enjoy working with latest technologies and tools when developing software applications.
-                I stay up to date with latest technology trends by reading technology documentation and 
-                technology blogs as well as contributing to open source software development.
+                {aboutData.description}
               </motion.p>
               <motion.div
                 className="flex mt-10 items-center gap-7 justify-center md:justify-start"

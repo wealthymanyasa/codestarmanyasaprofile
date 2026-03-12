@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
@@ -72,6 +73,17 @@ const Navbar = () => {
                 </a>
               </motion.li>
             ))}
+            <motion.li
+              whileHover={{ scale: 1.07 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <Link
+                to="/admin"
+                className="btn-primary hover:bg-sky-700 h-10 uppercase shadow-md transition-all duration-200"
+              >
+                Admin
+              </Link>
+            </motion.li>
             <motion.li
               whileHover={{ scale: 1.07 }}
               whileTap={{ scale: 0.97 }}

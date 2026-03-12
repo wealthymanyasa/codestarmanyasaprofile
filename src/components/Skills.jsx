@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { initialSkills } from "../data/initialData";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -21,31 +23,7 @@ const itemVariants = {
 };
 
 const Skills = () => {
-    const skills = [
-        {
-            logo: "logo-nodejs",
-            level: "Intermediate",
-            count: 65,
-        },
-        {
-            logo: "logo-laravel",
-            level: "intermediate",
-            count: 60,
-        },
-        {
-
-            logo: "logo-react",
-            level: "Experienced",
-            count: 50,
-        },
-        {
-            logo: "logo-angular",
-            level: "Advanced",
-            count: 70,
-        },
-
-
-    ];
+    const [skills] = useLocalStorage('skills', initialSkills);
     return (
       <>
         {/* Animated accent blob */}
@@ -81,7 +59,7 @@ const Skills = () => {
             >
               {skills?.map((skill, i) => (
                 <motion.div
-                  key={i}
+                  key={skill.id}
                   className="border-2 group border-cyan-600 relative min-w-[10rem] max-w-[16rem] bg-gray-900 p-10 rounded-xl shadow-lg hover:shadow-cyan-600/20 transition-shadow duration-300"
                   variants={itemVariants}
                   whileHover={{ scale: 1.06, boxShadow: "0 8px 32px rgba(6,182,212,0.13)" }}
@@ -89,7 +67,7 @@ const Skills = () => {
                 >
                   <motion.div
                     style={{
-                      background: `conic-gradient(rgb(6,182,212) ${skill.count}%,#23272f ${skill.count}%)`,
+                      background: `conic-gradient(rgb(6,182,212) ${skill.level}%,#23272f ${skill.level}%)`,
                     }}
                     className="w-32 h-32 flex items-center justify-center rounded-full transition-all duration-300"
                     whileHover={{ rotate: 10, scale: 1.07 }}
@@ -98,7 +76,9 @@ const Skills = () => {
                       className="text-6xl w-28 h-28 bg-gray-900 rounded-full flex items-center justify-center group-hover:text-cyan-400 transition-colors duration-300"
                       whileHover={{ color: "#06b6d4", scale: 1.12 }}
                     >
-                      <ion-icon name={skill.logo}></ion-icon>
+                      <div className="text-2xl font-bold text-cyan-400">
+                        {skill.level}%
+                      </div>
                     </motion.div>
                   </motion.div>
                   <motion.p
@@ -107,7 +87,15 @@ const Skills = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                   >
-                    {skill.level}
+                    {skill.name}
+                  </motion.p>
+                  <motion.p
+                    className="text-sm mt-1 text-gray-400"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    {skill.category}
                   </motion.p>
                 </motion.div>
               ))}

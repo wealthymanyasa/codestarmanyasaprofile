@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import hero from "../assets/images/obert.jpg";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { initialHero } from "../data/initialData";
 
 const textVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -12,6 +14,7 @@ const textVariants = {
 };
 
 const Hero = () => {
+    const [heroData] = useLocalStorage('hero', initialHero);
 
     return (
         <motion.section
@@ -62,10 +65,10 @@ const Hero = () => {
                         custom={1}
                     >
                         <span className="text-cyan-400 md:text-6xl text-5xl drop-shadow-lg">
-                            Hi There!
+                            {heroData.title.split(' ').slice(0, 2).join(' ')}
                             <br />
                         </span>
-                        I'm <span className="text-cyan-100">Obert Manyasa</span>
+                        {heroData.title.split(' ').slice(2).join(' ')}
                     </motion.h1>
                     <motion.h4
                         className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-200"
@@ -75,14 +78,12 @@ const Hero = () => {
                         custom={2}
                     >
                         <span className="relative inline-block">
-                            <span className="relative text-white px-2 py-1 rounded bg-gradient-to-r from-violet-500 to-cyan-600 shadow-md animate-gradient-x">Full-Stack</span>
+                            <span className="relative text-white px-2 py-1 rounded bg-gradient-to-r from-violet-500 to-cyan-600 shadow-md animate-gradient-x">{heroData.subtitle.split(' ')[0]}</span>
                         </span>
-                        &nbsp;Software Engineer
+                        &nbsp;{heroData.subtitle.split(' ').slice(1).join(' ')}
                     </motion.h4>
                     <motion.a
-                        href="https://api.whatsapp.com/send?phone=263779050634"
-                        target="_blank"
-                        rel="noreferrer"
+                        href={heroData.ctaLink}
                         whileHover={{ scale: 1.08, backgroundColor: "#06b6d4", color: "#fff" }}
                         whileTap={{ scale: 0.96 }}
                         className="inline-block mt-8 px-8 py-3 rounded-full bg-cyan-600 text-white font-semibold shadow-lg hover:bg-cyan-700 transition-all duration-200 text-lg"
@@ -91,7 +92,7 @@ const Hero = () => {
                         animate="visible"
                         custom={3}
                     >
-                        Contact Me
+                        {heroData.ctaText}
                     </motion.a>
                     <motion.div
                         className="mt-8 text-3xl flex items-center md:justify-start justify-center gap-7"
