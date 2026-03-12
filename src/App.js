@@ -5,12 +5,14 @@ import Navbar from './components/Navbar'
 import Bot from './components/Bot';
 import Hero from './components/Hero';
 import About from './components/About';
+import Projects from './components/Projects';
 import Skills from './components/Skills';
+import CVDownload from './components/CVDownload';
 import Hireme from './components/Hireme';
 import Contact from './components/Contact';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
-import Projects from './components/Projects';
+import CVDebug from './components/CVDebug';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Login from './components/admin/Login';
 import Dashboard from './components/admin/Dashboard';
@@ -38,12 +40,14 @@ function AppRoutes() {
           <Bot />
           <Hero/>
           <About/>
-          <Skills/>
           <Projects/>
+          <Skills/>
+          <CVDownload/>
           <Hireme/>
           <Testimonials/>
           <Contact/>
-          <Footer/>
+          <Footer />
+          <CVDebug />
         </div>
       } />
       <Route path="/admin/login" element={<Login />} />

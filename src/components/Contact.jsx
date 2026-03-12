@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { motion } from "framer-motion"
 import emailjs from '@emailjs/browser'
 import { useToast } from "../hooks/use-toast"
+import { useCVDownload } from "../hooks/useCVDownload"
 import { Loader2, CheckCircle, XCircle, Send } from "lucide-react"
 
 const containerVariants = {
@@ -24,6 +25,11 @@ const itemVariants = {
 };
 
 const Contact = () => {
+  const { toast } = useToast()
+  const { handleDownloadCV, hasActiveCV, cvTitle } = useCVDownload()
+  const form = useRef()
+  const [isSending, setIsSending] = useState(false)
+
   const contact_info = [
     { logo: "mail", text: "omanyasa@yahoo.com" },
     { logo: "logo-whatsapp", text: "+263 779 050 634" },
@@ -32,10 +38,6 @@ const Contact = () => {
       text: "Newlands Harare, Zimbabwe",
     },
   ];
-
-  const { toast } = useToast()
-  const form = useRef()
-  const [isSending, setIsSending] = useState(false)
 
   const sendEmail = async (e) => {
     e.preventDefault()
@@ -237,6 +239,37 @@ const Contact = () => {
               </motion.div>
             ))}
           </motion.div>
+        </motion.div>
+        
+        {/* CV Download Section */}
+        <motion.div
+          className="mt-8 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={itemVariants}
+        >
+          <motion.p
+            className="text-gray-300 mb-4"
+            variants={itemVariants}
+          >
+            Want to know more about my experience?
+          </motion.p>
+          <motion.button
+            onClick={handleDownloadCV}
+            disabled={!hasActiveCV}
+            whileHover={{ scale: hasActiveCV ? 1.05 : 1 }}
+            whileTap={{ scale: 0.95 }}
+            className={`inline-flex items-center space-x-2 px-6 py-3 rounded-full font-bold shadow-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-cyan-300 transition-all duration-200 border-none text-white ${
+              !hasActiveCV ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            variants={itemVariants}
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>{hasActiveCV ? `Download ${cvTitle}` : 'CV Coming Soon'}</span>
+          </motion.button>
         </motion.div>
       </div>
     </motion.section>

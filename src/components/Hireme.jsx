@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useCVDownload } from "../hooks/useCVDownload";
 import hireMe from "../assets/images/hero.jpg";
 
 const containerVariants = {
@@ -22,6 +23,7 @@ const itemVariants = {
 };
 
 const Hireme = () => {
+  const { handleDownloadCV, hasActiveCV, cvTitle } = useCVDownload();
   return (
     <motion.section
       id="hireme"
@@ -88,11 +90,26 @@ const Hireme = () => {
             rel="noreferrer"
             whileHover={{ scale: 1.08, backgroundColor: "#0ea5e9", color: "#fff", boxShadow: "0 4px 32px #06b6d4aa" }}
             whileTap={{ scale: 0.97 }}
-            className="inline-block mt-10 px-10 py-3 rounded-full text-lg font-bold shadow-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-cyan-300 transition-all duration-200 border-none text-white tracking-wide"
+            className="inline-block mt-6 px-10 py-3 rounded-full text-lg font-bold shadow-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-cyan-300 transition-all duration-200 border-none text-white tracking-wide"
             variants={itemVariants}
           >
             <span className="flex items-center gap-2"><ion-icon name="rocket-outline"></ion-icon>Hire me</span>
           </motion.a>
+          <motion.button
+            onClick={handleDownloadCV}
+            disabled={!hasActiveCV}
+            whileHover={{ scale: hasActiveCV ? 1.08 : 1, backgroundColor: hasActiveCV ? "#0ea5e9" : "", color: "#fff", boxShadow: hasActiveCV ? "0 4px 32px #06b6d4aa" : "" }}
+            whileTap={{ scale: 0.97 }}
+            className={`inline-block mt-6 px-10 py-3 rounded-full text-lg font-bold shadow-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-cyan-300 transition-all duration-200 border-none text-white tracking-wide flex items-center gap-2 ${
+              !hasActiveCV ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            variants={itemVariants}
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>{hasActiveCV ? `Download ${cvTitle}` : 'CV Coming Soon'}</span>
+          </motion.button>
         </motion.div>
         <motion.div
           className="flex-1 flex items-center justify-center relative"

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import aboutImg from "../assets/images/aboutme.jpg";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useCVDownload } from "../hooks/useCVDownload";
 import { initialAbout } from "../data/initialData";
 
 const containerVariants = {
@@ -25,6 +26,7 @@ const itemVariants = {
 
 const About = () => {
   const [aboutData] = useLocalStorage('about', initialAbout);
+  const { handleDownloadCV, hasActiveCV, cvTitle } = useCVDownload();
   const info = [
     { text: "Experience", count: aboutData.experience },
     { text: "Projects", count: aboutData.projects },
@@ -99,15 +101,20 @@ const About = () => {
                 ))}
               </motion.div>
               <br />
-              <motion.a
-                href="https://www.dropbox.com/s/3w4emnjp0jxm0ns/omanyasa.cv%20%281%29.pdf?dl=1"
-                download
-                whileHover={{ scale: 1.07, backgroundColor: "#06b6d4", color: "#fff" }}
+              <motion.button
+                onClick={handleDownloadCV}
+                disabled={!hasActiveCV}
+                whileHover={{ scale: hasActiveCV ? 1.07 : 1, backgroundColor: hasActiveCV ? "#06b6d4" : "", color: "#fff" }}
                 whileTap={{ scale: 0.96 }}
-                className="inline-block mt-8 px-8 py-3 rounded-full bg-cyan-600 text-white font-semibold shadow-lg hover:bg-cyan-700 transition-all duration-200 text-lg"
+                className={`inline-block mt-8 px-8 py-3 rounded-full bg-cyan-600 text-white font-semibold shadow-lg hover:bg-cyan-700 transition-all duration-200 text-lg flex items-center space-x-2 ${
+                  !hasActiveCV ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
               >
-                Download CV
-              </motion.a>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>{hasActiveCV ? `Download ${cvTitle}` : 'CV Coming Soon'}</span>
+              </motion.button>
             </div>
           </motion.div>
           <motion.div

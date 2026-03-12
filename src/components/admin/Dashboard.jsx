@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useAuth } from '../../contexts/AuthContext';
 import ProjectManager from './ProjectManager';
 import SkillsManager from './SkillsManager';
+import CVManager from './CVManager';
 import HeroManager from './HeroManager';
 import AboutManager from './AboutManager';
 
@@ -13,6 +14,7 @@ const Dashboard = () => {
   const tabs = [
     { id: 'projects', label: 'Projects', icon: '📁' },
     { id: 'skills', label: 'Skills', icon: '🎯' },
+    { id: 'cv', label: 'CV', icon: '📄' },
     { id: 'hero', label: 'Hero Section', icon: '🏠' },
     { id: 'about', label: 'About', icon: '👤' }
   ];
@@ -77,6 +79,7 @@ const Dashboard = () => {
         >
           {activeTab === 'projects' && <ProjectManager />}
           {activeTab === 'skills' && <SkillsManager />}
+          {activeTab === 'cv' && <CVManager />}
           {activeTab === 'hero' && <HeroManager />}
           {activeTab === 'about' && <AboutManager />}
         </motion.div>

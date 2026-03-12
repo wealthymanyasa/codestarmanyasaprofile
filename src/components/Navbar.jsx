@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useCVDownload } from "../hooks/useCVDownload";
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
   const [open, setOpen] = useState(false);
+  const { handleDownloadCV, hasActiveCV } = useCVDownload();
   const menuLinks = [
     { name: "HOME", link: "#home" },
     { name: "ABOUT", link: "#about" },
@@ -88,13 +90,18 @@ const Navbar = () => {
               whileHover={{ scale: 1.07 }}
               whileTap={{ scale: 0.97 }}
             >
-              <a
-                href="https://www.dropbox.com/s/3w4emnjp0jxm0ns/omanyasa.cv%20%281%29.pdf?dl=1"
-                download
-                className="btn-primary hover:bg-sky-700 h-10 uppercase shadow-md transition-all duration-200"
+              <motion.button
+                onClick={handleDownloadCV}
+                disabled={!hasActiveCV}
+                className={`btn-primary hover:bg-sky-700 h-10 uppercase shadow-md transition-all duration-200 flex items-center space-x-2 ${
+                  !hasActiveCV ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
               >
-                Resume
-              </a>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>CV</span>
+              </motion.button>
             </motion.li>
           </ul>
         </motion.div>
