@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { initialSkills } from '../../data/initialData';
+import ImageUpload from './ImageUpload';
 
 const SkillsManager = () => {
   const [skills, setSkills] = useLocalStorage('skills', initialSkills);
@@ -10,14 +11,18 @@ const SkillsManager = () => {
   const [formData, setFormData] = useState({
     name: '',
     level: 50,
-    category: 'Frontend'
+    category: 'Frontend',
+    icon: '',
+    color: 'from-cyan-400 to-blue-500'
   });
 
   const resetForm = () => {
     setFormData({
       name: '',
       level: 50,
-      category: 'Frontend'
+      category: 'Frontend',
+      icon: '',
+      color: 'from-cyan-400 to-blue-500'
     });
     setIsAdding(false);
     setEditingId(null);
@@ -44,7 +49,9 @@ const SkillsManager = () => {
     setFormData({
       name: skill.name,
       level: skill.level,
-      category: skill.category
+      category: skill.category,
+      icon: skill.icon || '',
+      color: skill.color || 'from-cyan-400 to-blue-500'
     });
     setEditingId(skill.id);
     setIsAdding(true);
@@ -56,7 +63,25 @@ const SkillsManager = () => {
     }
   };
 
-  const categories = ['Frontend', 'Backend', 'Database', 'Tools', 'Other'];
+  const categories = ['Frontend', 'Backend', 'Database', 'Machine Learning', 'Natural Language Processing', 'DevOps', 'Cloud', 'Tools', 'Other'];
+  
+  const colorOptions = [
+    'from-cyan-400 to-blue-500',
+    'from-yellow-400 to-orange-500',
+    'from-blue-500 to-indigo-600',
+    'from-green-500 to-emerald-600',
+    'from-green-600 to-lime-500',
+    'from-green-500 to-emerald-700',
+    'from-blue-600 to-indigo-700',
+    'from-blue-400 to-cyan-500',
+    'from-orange-500 to-yellow-600',
+    'from-red-500 to-orange-600',
+    'from-cyan-500 to-teal-600',
+    'from-gray-800 to-black',
+    'from-purple-500 to-pink-600',
+    'from-pink-500 to-rose-600',
+    'from-indigo-500 to-blue-600'
+  ];
 
   return (
     <div>
@@ -82,7 +107,7 @@ const SkillsManager = () => {
             {editingId ? 'Edit Skill' : 'Add New Skill'}
           </h3>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Skill Name
@@ -93,19 +118,6 @@ const SkillsManager = () => {
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   className="w-full px-4 py-2 bg-slate-600/50 border border-slate-500 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Level ({formData.level}%)
-                </label>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={formData.level}
-                  onChange={(e) => setFormData({...formData, level: parseInt(e.target.value)})}
-                  className="w-full"
                 />
               </div>
               <div>
@@ -123,6 +135,53 @@ const SkillsManager = () => {
                 </select>
               </div>
             </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                Skill Level ({formData.level}%)
+              </label>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={formData.level}
+                onChange={(e) => setFormData({...formData, level: parseInt(e.target.value)})}
+                className="w-full"
+              />
+              <div className="flex justify-between text-xs text-gray-400 mt-1">
+                <span>Beginner</span>
+                <span>Expert</span>
+              </div>
+            </div>
+
+            <ImageUpload
+                currentImage={formData.icon}
+                onImageChange={(image) => setFormData({...formData, icon: image})}
+                label="Skill Icon (Upload technology logo)"
+              />
+
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">
+                Color Gradient
+              </label>
+              <div className="grid grid-cols-3 gap-2">
+                {colorOptions.map((color) => (
+                  <motion.button
+                    key={color}
+                    type="button"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setFormData({...formData, color})}
+                    className={`h-10 rounded-lg border-2 transition-all ${
+                      formData.color === color 
+                        ? 'border-white scale-105' 
+                        : 'border-transparent hover:border-slate-400'
+                    } bg-gradient-to-r ${color}`}
+                  />
+                ))}
+              </div>
+            </div>
+
             <div className="flex space-x-3">
               <motion.button
                 type="submit"
@@ -158,10 +217,32 @@ const SkillsManager = () => {
             <div className="flex justify-between items-center">
               <div className="flex-1">
                 <div className="flex items-center space-x-4 mb-2">
-                  <h3 className="text-lg font-semibold text-white">{skill.name}</h3>
-                  <span className="px-2 py-1 bg-cyan-600/30 text-cyan-300 text-xs rounded-full border border-cyan-600/50">
-                    {skill.category}
-                  </span>
+                  {skill.icon ? (
+                    <div className="w-8 h-8 rounded-lg overflow-hidden border border-slate-600">
+                      <img 
+                        src={skill.icon} 
+                        alt={skill.name}
+                        className="w-full h-full object-contain bg-white"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className="w-full h-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold" style={{ display: skill.icon ? 'none' : 'flex' }}>
+                        {skill.name.charAt(0).toUpperCase()}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm font-bold">
+                      {skill.name.charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">{skill.name}</h3>
+                    <span className="px-2 py-1 bg-cyan-600/30 text-cyan-300 text-xs rounded-full border border-cyan-600/50">
+                      {skill.category}
+                    </span>
+                  </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="flex-1">
@@ -170,7 +251,7 @@ const SkillsManager = () => {
                         initial={{ width: 0 }}
                         animate={{ width: `${skill.level}%` }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="bg-gradient-to-r from-cyan-500 to-blue-600 h-full"
+                        className={`bg-gradient-to-r ${skill.color || 'from-cyan-500 to-blue-600'} h-full`}
                       />
                     </div>
                   </div>

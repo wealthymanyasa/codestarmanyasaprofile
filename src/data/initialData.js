@@ -79,37 +79,225 @@ export const initialSkills = [
     id: 1,
     name: "React",
     level: 90,
-    category: "Frontend"
+    category: "Frontend",
+    icon: "⚛️",
+    color: "from-cyan-400 to-blue-500"
   },
   {
     id: 2,
     name: "JavaScript",
     level: 85,
-    category: "Frontend"
+    category: "Frontend",
+    icon: "JS",
+    color: "from-yellow-400 to-orange-500"
   },
   {
     id: 3,
-    name: "Tailwind CSS",
-    level: 88,
-    category: "Frontend"
+    name: "TypeScript",
+    level: 80,
+    category: "Frontend",
+    icon: "TS",
+    color: "from-blue-500 to-indigo-600"
   },
   {
     id: 4,
-    name: "Node.js",
+    name: "Python",
     level: 75,
-    category: "Backend"
+    category: "Machine Learning",
+    icon: "🐍",
+    color: "from-green-500 to-emerald-600"
   },
   {
     id: 5,
-    name: "Firebase",
-    level: 80,
-    category: "Backend"
+    name: "Node.js",
+    level: 75,
+    category: "Backend",
+    icon: "Node",
+    color: "from-green-600 to-lime-500"
   },
   {
     id: 6,
     name: "MongoDB",
     level: 70,
-    category: "Backend"
+    category: "Database",
+    icon: "🍃",
+    color: "from-green-500 to-emerald-700"
+  },
+  {
+    id: 7,
+    name: "PostgreSQL",
+    level: 65,
+    category: "Database",
+    icon: "🐘",
+    color: "from-blue-600 to-indigo-700"
+  },
+  {
+    id: 8,
+    name: "Docker",
+    level: 60,
+    category: "DevOps",
+    icon: "🐳",
+    color: "from-blue-400 to-cyan-500"
+  },
+  {
+    id: 9,
+    name: "Kubernetes",
+    level: 55,
+    category: "DevOps",
+    icon: "☸️",
+    color: "from-blue-500 to-blue-700"
+  },
+  {
+    id: 10,
+    name: "AWS",
+    level: 55,
+    category: "Cloud",
+    icon: "☁️",
+    color: "from-orange-500 to-yellow-600"
+  },
+  {
+    id: 11,
+    name: "Git",
+    level: 85,
+    category: "Tools",
+    icon: "Git",
+    color: "from-red-500 to-orange-600"
+  },
+  {
+    id: 12,
+    name: "TensorFlow",
+    level: 70,
+    category: "Machine Learning",
+    icon: "TF",
+    color: "from-orange-500 to-red-600"
+  },
+  {
+    id: 13,
+    name: "PyTorch",
+    level: 65,
+    category: "Machine Learning",
+    icon: "🔥",
+    color: "from-orange-600 to-red-700"
+  },
+  {
+    id: 14,
+    name: "Scikit-learn",
+    level: 75,
+    category: "Machine Learning",
+    icon: "SK",
+    color: "from-blue-500 to-cyan-600"
+  },
+  {
+    id: 15,
+    name: "NLTK",
+    level: 60,
+    category: "Natural Language Processing",
+    icon: "📝",
+    color: "from-purple-500 to-pink-600"
+  },
+  {
+    id: 16,
+    name: "spaCy",
+    level: 65,
+    category: "Natural Language Processing",
+    icon: "🧠",
+    color: "from-indigo-500 to-purple-600"
+  },
+  {
+    id: 17,
+    name: "Transformers",
+    level: 70,
+    category: "Natural Language Processing",
+    icon: "🤖",
+    color: "from-purple-600 to-blue-600"
+  },
+  {
+    id: 18,
+    name: "FastAPI",
+    level: 70,
+    category: "Backend",
+    icon: "⚡",
+    color: "from-teal-500 to-green-600"
+  },
+  {
+    id: 19,
+    name: "Redis",
+    level: 60,
+    category: "Database",
+    icon: "🔴",
+    color: "from-red-600 to-red-800"
+  },
+  {
+    id: 20,
+    name: "GraphQL",
+    level: 65,
+    category: "Backend",
+    icon: "◈",
+    color: "from-pink-500 to-purple-600"
+  },
+  {
+    id: 21,
+    name: "Vue.js",
+    level: 70,
+    category: "Frontend",
+    icon: "V",
+    color: "from-green-500 to-emerald-600"
+  },
+  {
+    id: 22,
+    name: "Angular",
+    level: 65,
+    category: "Frontend",
+    icon: "▲",
+    color: "from-red-500 to-red-700"
+  },
+  {
+    id: 23,
+    name: "Next.js",
+    level: 70,
+    category: "Frontend",
+    icon: "▲",
+    color: "from-gray-800 to-black"
+  },
+  {
+    id: 24,
+    name: "Jenkins",
+    level: 50,
+    category: "DevOps",
+    icon: "🔧",
+    color: "from-gray-600 to-gray-800"
+  },
+  {
+    id: 25,
+    name: "Linux",
+    level: 70,
+    category: "Tools",
+    icon: "🐧",
+    color: "from-yellow-600 to-orange-700"
+  },
+  {
+    id: 26,
+    name: "Numpy",
+    level: 80,
+    category: "Machine Learning",
+    icon: "NP",
+    color: "from-blue-600 to-indigo-700"
+  },
+  {
+    id: 27,
+    name: "Pandas",
+    level: 75,
+    category: "Machine Learning",
+    icon: "PD",
+    color: "from-blue-500 to-cyan-600"
+  },
+  {
+    id: 28,
+    name: "Jupyter",
+    level: 85,
+    category: "Tools",
+    icon: "📓",
+    color: "from-orange-500 to-yellow-600"
   }
 ];
 
