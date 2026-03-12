@@ -76,15 +76,6 @@ const Login = () => {
             {isLoading ? 'Logging in...' : 'Login'}
           </motion.button>
         </form>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="text-center text-gray-400 text-sm mt-6"
-        >
-          Default password: admin123
-        </motion.p>
       </motion.div>
     </div>
   );

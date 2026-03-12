@@ -12,7 +12,6 @@ import Hireme from './components/Hireme';
 import Contact from './components/Contact';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
-import CVDebug from './components/CVDebug';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Login from './components/admin/Login';
 import Dashboard from './components/admin/Dashboard';
@@ -47,7 +46,6 @@ function AppRoutes() {
           <Testimonials/>
           <Contact/>
           <Footer />
-          <CVDebug />
         </div>
       } />
       <Route path="/admin/login" element={<Login />} />
