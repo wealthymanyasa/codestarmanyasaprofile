@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (password) => {
     // Simple password authentication - in production, use proper authentication
-    if (password === 'admin123') { // Change this to your preferred password
+    if (password === 'Secure@Portfolio2026!') { // Change this to your preferred password
       const token = 'admin-token-' + Date.now();
       localStorage.setItem('adminToken', token);
       setIsAuthenticated(true);
